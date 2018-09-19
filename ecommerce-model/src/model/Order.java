@@ -16,6 +16,8 @@ public class Order implements Serializable{
     private int id;
     private float total = 0F;
     private String idUser, data;
+    private int idProduct;
+    private int quantity;
 	private static final long serialVersionUID = 1L;
 	
 	public Order() {
@@ -47,5 +49,16 @@ public class Order implements Serializable{
 	public void setData(String data) {
 		this.data = data;
 	}
-
+	public int getIdProduct() {
+		return idProduct;
+	}
+	public void setIdProduct(int idProduct) {
+		this.idProduct = idProduct;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 }
