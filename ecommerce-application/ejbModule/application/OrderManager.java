@@ -19,16 +19,16 @@ public class OrderManager implements OrderManagerRemote {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public void addOrder(int idOrder, float total, String idUser, String userEmail, int idProduct, int quantity) {
-
+	public void addOrder(int id_order, float total, String email ,int id_product, int quantity) {
+		
 	}
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public int modifyQuantity(int idOrder, int idProduct, int quantity) {
+	public int modifyQuantity(int id_order, int id_product, int quantity) {
 		Order o = em.createNamedQuery("Order.findOrderById", Order.class)
-				.setParameter("idOrder", idOrder).getSingleResult();
-		if(o.getIdProduct()==idProduct)
+				.setParameter("id_order", id_order).getSingleResult();
+		if(o.getIdProduct()==id_product)
 		{
 			o.setQuantity(quantity);
 			em.getTransaction().commit();
@@ -39,11 +39,11 @@ public class OrderManager implements OrderManagerRemote {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public Product findProduct(int idp) {
+	public Product findProduct(int id_product) {
 		// TODO Auto-generated method stub
 		try {
 			Product p=em.createNamedQuery("Product.findProductById", Product.class)
-					.setParameter("idP", idp).getSingleResult();
+					.setParameter("id_product", id_product).getSingleResult();
 			return p;
 		} catch (Exception e) {
 			return null;

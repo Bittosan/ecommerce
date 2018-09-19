@@ -8,15 +8,16 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Order.findOrderById", query = "SELECT o FROM Order o WHERE o.id=:idOr")})
+    @NamedQuery(name = "Order.findOrderById", query = "SELECT o FROM Order o WHERE o.id_order=:idOr")})
 
 public class Order implements Serializable{
 
 	@Id
-    private int id;
+    private int id_order;
     private float total = 0F;
-    private String idUser, data;
-    private int idProduct;
+    private String email;
+    private String purchase_data;
+    private int id_product;
     private int quantity;
 	private static final long serialVersionUID = 1L;
 	
@@ -24,11 +25,11 @@ public class Order implements Serializable{
 		super();
 	}   
 	public int getId() {
-		return this.id;
+		return id_order;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int id_order) {
+		this.id_order = id_order;
 	}   
 	
 	public float getTotal() {
@@ -37,23 +38,23 @@ public class Order implements Serializable{
 	public void setTotal(float total) {
 		this.total = total;
 	}
-	public String getIdUser() {
-		return idUser;
+	public String getEmail() {
+		return email;
 	}
-	public void setIdUser(String idUser) {
-		this.idUser = idUser;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getData() {
-		return data;
+		return purchase_data;
 	}
-	public void setData(String data) {
-		this.data = data;
+	public void setData(String purchase_data) {
+		this.purchase_data = purchase_data;
 	}
 	public int getIdProduct() {
-		return idProduct;
+		return id_product;
 	}
-	public void setIdProduct(int idProduct) {
-		this.idProduct = idProduct;
+	public void setIdProduct(int id_product) {
+		this.id_product = id_product;
 	}
 	public int getQuantity() {
 		return quantity;

@@ -61,24 +61,24 @@
 	
 	<div class = "middle-center">
 		<table class = "catalogo">
-			<c:forEach items ="${sessionScope.lista}" var = "prodotto">
+			<c:forEach items ="${sessionScope.list}" var = "product">
 			<tr>				
 				<td class = "colonna">
-					<c:out value = "${prodotto.descrizione}"/>
+					<c:out value = "${product.description}"/>
 				</td>
 				<td class = "colonna">
-					<c:out value = "${prodotto.prezzo}euro"/>
+					<c:out value = "${product.price}euro"/>
 				</td>
 								<td class = "colonna">
-					<c:out value = "Disponibilità: ${prodotto.disponibilita}"/>
+					<c:out value = "Disponibilità: ${product.availability}"/>
 				</td>
 				<td class = "colonna">
 				
 				<!-- In questa parte viene visualizzata la possibilità di aggiunge al carrello il prodotto -->
 					<form action = "addcart" method = "POST">
 						<input type = "Submit" value = "Aggiungi al carrello"><br>
-						<input type = "hidden" name = "idProduct" value='<c:out value = "${prodotto.id}"/>'/>
-						Quantità: <input type = "number" name = "quantita" value= "${prodotto.quantita}">
+						<input type = "hidden" name = "id_product" value='<c:out value = "${product.id_product}"/>'/>
+						Quantità: <input type = "number" name = "quantity" value= "${product.availability}">
 					</form>	
 				</td>
 			</tr>

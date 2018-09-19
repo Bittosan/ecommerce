@@ -17,13 +17,13 @@
 			<c:if test = "${email == null }"><font color = red>*</font></c:if><br>
 			Username: <input name = "username" required/>
 			<c:if test = "${username == null }"><font color = red required>*</font></c:if><br>
-			Password: <input type = "PASSWORD" name = "password" value = "" required>
+			Password: <input type = "password" name = "password" value = "" required>
 			<c:if test = "${password == null }"><font color = red>*</font></c:if><br>
-			Conferma Password: <input type = "PASSWORD" name= "confPassword" value = "" required>
+			Conferma Password: <input type = "PASSWORD" name= "repeat_password" value = "" required>
 			<c:if test = "${confPassword == null }"><font color = red>*</font></c:if><br>
-			Nome: <input type = "TEXT" name = "nome" value = "" required>
+			Nome: <input type = "TEXT" name = "name" value = "" required>
 			<c:if test = "${nome == null }"><font color = red>*</font></c:if><br>
-			Cognome: <input type = "TEXT" name = "cognome" value = "" required">
+			Cognome: <input type = "TEXT" name = "surname" value = "" required">
 			<c:if test = "${cognome == null }"><font color = red>*</font></c:if><br>
 						
 			<input type = "submit" class = "bottone" value = "Registrati">

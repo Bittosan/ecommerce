@@ -18,9 +18,9 @@ public class UserManager implements UserManagerRemote {
 	public UserManager(){}
 
 	@Override
-	public boolean controlPassword(String password, String confPassword) {
+	public boolean controlPassword(String password, String repeatPassword) {
 		// TODO Auto-generated method stub
-		if(password.equals(confPassword))
+		if(password.equals(repeatPassword))
 			return true;
 		else
 			return false;
@@ -73,13 +73,12 @@ public class UserManager implements UserManagerRemote {
 	
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public void saveUser(String email, String username, String password, String nome, String cognome) {
+	public void saveUser(String email, String username, String password, String name, String surname) {
 		try {
-			em.persist(new User(email,username,password,nome,cognome));
+			em.persist(new User(email,username,password,name,surname));
 			System.out.println("utente creato con successo");
 		} catch (Exception e) {
 			System.err.println("utente non creato");
 		}
 	}
-
 }

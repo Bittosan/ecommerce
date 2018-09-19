@@ -6,56 +6,62 @@ import java.lang.String;
 
 public class Product implements Serializable {
 	  
-	private Integer id;
-	private String descrizione;
-	private String tipo;
-	private double prezzo;
-	private int disponibilita;
-	private String immagine;
+	private Integer id_product;
+	private String description;
+	private String type;
+	private double price;
+	private int availability;
+	
+	//private String image;
+
 	private static final long serialVersionUID = 1L;
 
 	public Product() {
 		super();
-	}   
-	public Integer getId() {
-		return this.id;
+	}
+	
+	public Integer getId_product() {
+		return id_product;
+	}
+	public void setId_product(Integer id_product) {
+		this.id_product = id_product;
+	}
+	
+	public String getDescription() {
+		return this.description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getType() {
+		return this.type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	public double getPrice() {
+		return this.price;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setPrice(double price) {
+		this.price = price;
 	}   
-	public String getDescrizione() {
-		return this.descrizione;
+	
+	public int getAvailability() {
+		return availability;
 	}
-
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
-	}   
-	public String getTipo() {
-		return this.tipo;
+	public void setAvailability(int availability) {
+		this.availability = availability;
 	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}   
-	public double getPrezzo() {
-		return this.prezzo;
+	
+	/*
+	public String getImage() {
+		return image;
 	}
-
-	public void setPrezzo(double prezzo) {
-		this.prezzo = prezzo;
-	}   
-
-	public int getDisponibilita() {
-		return disponibilita;
-	}
-	public void setDisponibilita(int disponibilita) {
-		this.disponibilita = disponibilita;
-	}
-	public String getImmagine() {
-		return immagine;
-	}
-	public void setImmagine(String immagine) {
-		this.immagine = immagine;
-	}  
+	public void setImage(String image) {
+		this.image = image;
+	} 
+	*/ 
 }

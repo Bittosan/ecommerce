@@ -21,7 +21,7 @@ public class ProductManager implements ProductManagerRemote {
 		// TODO Auto-generated method stub
 		try{
 			List<Product> list = em.createNamedQuery("Product.findProductByType", Product.class)
-					.setParameter("tipo", type).getResultList();
+					.setParameter("type", type).getResultList();
 			return list;
 		}catch(Exception e){
 			System.err.println("Errore nel caricamento della lista del tipo di prodotto");
@@ -31,11 +31,11 @@ public class ProductManager implements ProductManagerRemote {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public Product findProduct(int idp) {
+	public Product findProduct(int id_product) {
 		// TODO Auto-generated method stub
 		try {
 			Product p=em.createNamedQuery("Product.findProductById", Product.class)
-					.setParameter("idP", idp).getSingleResult();
+					.setParameter("id_product", id_product).getSingleResult();
 			return p;
 		} catch (Exception e) {
 			return null;
@@ -44,12 +44,12 @@ public class ProductManager implements ProductManagerRemote {
 	
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public Product upgradeAvailability(int idp, int availability) {
+	public Product upgradeAvailability(int id_product, int availability) {
 		// TODO Auto-generated method stub
 		try {
 			Product p=em.createNamedQuery("Product.findProductById", Product.class)
-					.setParameter("idP", idp).getSingleResult();
-			p.setDisponibilita(availability);
+					.setParameter("id_product", id_product).getSingleResult();
+			p.setAvailability(availability);
 			em.getTransaction().commit();
 			return p;
 		} catch (Exception e) {

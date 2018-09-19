@@ -12,62 +12,68 @@ import javax.persistence.*;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Product.findProductByType", query = "SELECT p FROM Product p WHERE p.tipo=:tipo"),
-    @NamedQuery(name = "Product.findProductById", query = "SELECT p FROM Product p WHERE p.id=:idP")})
+    @NamedQuery(name = "Product.findProductByType", query = "SELECT p FROM Product p WHERE p.type=:type"),
+    @NamedQuery(name = "Product.findProductById", query = "SELECT p FROM Product p WHERE p.id_product=:id_product")})
 
 public class Product implements Serializable {
 	   
 	@Id
-	private Integer id;
-	private String descrizione;
-	private String tipo;
-	private double prezzo;
-	private int disponibilita;
-	private String immagine;
+	private Integer id_product;
+	private String description;
+	private String type;
+	private double price;
+	private int availability;
+	
+	//private String image;
 
 	private static final long serialVersionUID = 1L;
 
 	public Product() {
 		super();
-	}   
+	}
+	
 	public Integer getId() {
-		return this.id;
+		return this.id_product;
 	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}   
-	public String getDescrizione() {
-		return this.descrizione;
+	public void setId(Integer id_product) {
+		this.id_product = id_product;
 	}
-
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
-	}   
-	public String getTipo() {
-		return this.tipo;
+	
+	public String getDescription() {
+		return this.description;
 	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}   
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getType() {
+		return this.type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 	public double getPrezzo() {
-		return this.prezzo;
+		return this.price;
 	}
 
-	public void setPrezzo(double prezzo) {
-		this.prezzo = prezzo;
+	public void setPrice(double price) {
+		this.price = price;
 	}   
-	public int getDisponibilita() {
-		return disponibilita;
+	
+	public int getAvailability() {
+		return availability;
 	}
-	public void setDisponibilita(int disponibilita) {
-		this.disponibilita = disponibilita;
+	public void setAvailability(int availability) {
+		this.availability = availability;
 	}
-	public String getImmagine() {
-		return immagine;
+	
+	/*
+	public String getImage() {
+		return image;
 	}
-	public void setImmagine(String immagine) {
-		this.immagine = immagine;
-	}  
+	public void setImage(String image) {
+		this.image = image;
+	} 
+	*/ 
 }

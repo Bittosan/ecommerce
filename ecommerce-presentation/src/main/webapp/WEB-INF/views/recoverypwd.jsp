@@ -13,8 +13,8 @@
 		<form class = "np" action = "pwdchange" method = "post">
 			E-Mail: <input type = "text" name = "email" value = "" required>
 			<c:if test = "${email == null }"><font color = red>*</font></c:if><br>
-			Nuova Password: <input name = "newpwd" required/>
-			<c:if test = "${pwd == null }"><font color = red required>*</font></c:if><br>
+			Nuova Password: <input name = "new_pass" required/>
+			<c:if test = "${new_pass == null }"><font color = red required>*</font></c:if><br>
 						
 			<input type = "submit" class = "bottone" value = "invia">
 		</form>

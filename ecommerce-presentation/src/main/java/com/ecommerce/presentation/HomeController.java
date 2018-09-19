@@ -43,14 +43,14 @@ public class HomeController {
 	
 	@RequestMapping(value = "/registrationController", method = RequestMethod.POST)
 	public String completeRegistration(Locale locale, Model model, @RequestParam String email, @RequestParam String username
-						,@RequestParam String password, @RequestParam String confPassword ,@RequestParam String nome
-						,@RequestParam String cognome) {
+						,@RequestParam String password, @RequestParam String repeat_password ,@RequestParam String name
+						,@RequestParam String surname) {
 		
-		if (password.equals(confPassword)) {
+		if (password.equals(repeat_password)) {
 			if(!userOP.checkUser(email)) 
-				userOP.saveUser(email, username, password, nome, cognome);
+				userOP.saveUser(email, username, password, name, surname);
 			else
-				System.out.println("utente gi√† esistente");
+				System.out.println("utente gia† esistente");
 		}
 		model.addAttribute("username", null);
 		return "home";
@@ -86,11 +86,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/pwdchange", method = RequestMethod.POST)
-	public String changePwd(Locale locale, Model model, @RequestParam String email, @RequestParam String newpwd) {
+	public String changePwd(Locale locale, Model model, @RequestParam String email, @RequestParam String new_pass) {
 		
 		User user=userOP.getUser(email);
 		if (user!=null) {
-			user.setPassword(newpwd);
+			user.setPassword(new_pass);
 			userOP.updateUser(user);
 		}
 		return "home";

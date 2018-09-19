@@ -19,18 +19,18 @@
 			<c:forEach items ="${sessionScope.cart}" var = "product">
 			<tr>				
 				<td class = "colonna">
-					<c:out value = "${product.descrizione}"/>
+					<c:out value = "${product.description}"/>
 				</td>
 				<td class = "colonna">
-					<c:out value = "${product.prezzo}euro"/>
+					<c:out value = "${product.price}euro"/>
 				</td>
 				<td class = "colonna">
-					<c:out value = "Quantità: ${product.quantita}"/>
+					<c:out value = "Quantità: ${product.availability}"/>
 				</td>
 				<td class = "colonna">
 				<form action = "removeproductcart" method = "POST">
 						<input type = "Submit" value = "Rimuovi prodotto"><br>
-						<input type = "hidden" name = "idProduct" value='<c:out value = "${product.id}"/>'/>
+						<input type = "hidden" name = "id_product" value='<c:out value = "${product.id_product}"/>'/>
 					</form>	
 				</td>
 			</tr>

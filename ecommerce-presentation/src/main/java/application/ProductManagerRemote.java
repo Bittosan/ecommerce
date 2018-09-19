@@ -9,7 +9,7 @@ import model.Product;
 @Remote
 public interface ProductManagerRemote {
 
-	public List<Product> getProductList(String productType);
-	public Product findProduct(int idProdotto);
-	public Product upgradeAvailability(int idProdotto, int availability);
+	public List<Product> getProductList(String type);
+	public Product findProduct(int id_product);
+	public Product upgradeAvailability(int id_product, int availability);
 }

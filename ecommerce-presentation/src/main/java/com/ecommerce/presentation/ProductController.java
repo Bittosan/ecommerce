@@ -44,22 +44,22 @@ public class ProductController {
 	public String productView(HttpSession session,Locale locale, Model model, @RequestParam String tipo) {
 		
 		List<Product> lp=productOP.getProductList(tipo);
-		model.addAttribute("lista", lp);
-		session.setAttribute("lista", lp);
+		model.addAttribute("list", lp);
+		session.setAttribute("list", lp);
 		logger.info("nome prodotto: "+lp.toString());
 		return "catalogo";
 	}
 	
 	@RequestMapping(value = "/addcart", method = RequestMethod.POST)
 	public String addCart(HttpSession session, Model model,
-			@RequestParam int idProduct, @RequestParam int quantita){
+			@RequestParam int id_product, @RequestParam int quantity){
 		ArrayList<Product> cart = (ArrayList<Product>) session.getAttribute("cart");
 			
 		if(cart == null)
 		{
 			cart = new ArrayList<Product>();
-			Product product = productOP.findProduct(idProduct);
-	//		product.setQuantita(quantita);
+			Product product = productOP.findProduct(id_product);
+	//		product.setQuantita(quantity);
 			cart.add(product);
 			flagCart=true;
 	//		session.setAttribute("total", getTotalCart(cart));
@@ -67,8 +67,8 @@ public class ProductController {
 		}
 		else
 		{
-			Product product = productOP.findProduct(idProduct);
-	//		product.setQuantita(quantita);
+			Product product = productOP.findProduct(id_product);
+	//		product.setQuantita(quantity);
 			cart.add(product);
 			flagCart=true;
 	//		session.setAttribute("total", getTotalCart(cart));
@@ -99,14 +99,14 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/removeproductcart", method = RequestMethod.POST)
-	public String removeproductcart(HttpSession session, Model model, @RequestParam int idProduct)
+	public String removeproductcart(HttpSession session, Model model, @RequestParam int id_product)
 	{		
 		ArrayList<Product> cart = (ArrayList<Product>) session.getAttribute("cart");
 		Product product = new Product();
 		
 		for(Product p : cart)
 		{
-			if(p.getId()==idProduct)
+			if(p.getId_product()==id_product)
 				product= p;
 		}
 		

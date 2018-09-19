@@ -7,7 +7,7 @@ import model.Product;
 @Remote	
 public interface OrderManagerRemote {
 	
-	public void addOrder(int idOrder, float total, String idUser, String userEmail ,int idProduct, int quantity);
-	public int modifyQuantity(int idOrder, int idProduct, int quantity);
-	public Product findProduct(int idProduct);
+	public void addOrder(int id_order, float total, String email ,int id_product, int quantity);
+	public int modifyQuantity(int id_order, int id_product, int quantity);
+	public Product findProduct(int id_product);
 }
