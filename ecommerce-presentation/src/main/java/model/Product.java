@@ -11,8 +11,7 @@ public class Product implements Serializable {
 	private String type;
 	private double price;
 	private int availability;
-	
-	//private String image;
+	private String image;
 
 	private static final long serialVersionUID = 1L;
 
@@ -54,6 +53,14 @@ public class Product implements Serializable {
 	}
 	public void setAvailability(int availability) {
 		this.availability = availability;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	/*

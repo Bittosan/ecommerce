@@ -45,9 +45,13 @@
 				</td>
 					</tr>
 		</table>
+		
+		
+				<form action = "vieworder" method = "GET">
+						<input type = "Submit" value = "Procedi all'ordine">
+					</form>	
 				</c:otherwise>
 			</c:choose>		
-
 
 			
 </body>

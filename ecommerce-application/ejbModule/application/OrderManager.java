@@ -25,7 +25,7 @@ public class OrderManager implements OrderManagerRemote {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public int modifyQuantity(int id_order, int id_product, int quantity) {
+	public void modifyQuantity(int id_order, int id_product, int quantity) {
 		Order o = em.createNamedQuery("Order.findOrderById", Order.class)
 				.setParameter("id_order", id_order).getSingleResult();
 		if(o.getIdProduct()==id_product)
@@ -33,8 +33,6 @@ public class OrderManager implements OrderManagerRemote {
 			o.setQuantity(quantity);
 			em.getTransaction().commit();
 		}
-		
-		return quantity;
 	}
 
 	@Override
