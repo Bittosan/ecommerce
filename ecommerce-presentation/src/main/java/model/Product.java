@@ -11,9 +11,13 @@ public class Product implements Serializable {
 	private String type;
 	private double price;
 	private int availability;
+<<<<<<< HEAD
 	private int quantity;
 	
 	//private String image;
+=======
+	private String image;
+>>>>>>> refs/remotes/origin/master
 
 	private static final long serialVersionUID = 1L;
 
@@ -62,6 +66,14 @@ public class Product implements Serializable {
 	}
 	public void setQuantity(int quantity) {
 		this.quantity += quantity;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	/*
