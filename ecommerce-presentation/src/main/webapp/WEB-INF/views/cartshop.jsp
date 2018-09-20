@@ -46,17 +46,17 @@
 		</tr>
 			
 		</table>
-<<<<<<< HEAD
+
 		<form action = "emptycart" method = "POST">
 						<input type = "Submit" value = "Rimuovi tutto"><br>
 				</form>
-=======
+
 		
 		
 				<form action = "vieworder" method = "GET">
 						<input type = "Submit" value = "Procedi all'ordine">
 					</form>	
->>>>>>> refs/remotes/origin/master
+
 				</c:otherwise>
 			</c:choose>		
 
