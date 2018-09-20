@@ -25,13 +25,13 @@
 					<c:out value = "${product.price}euro"/>
 				</td>
 				<td class = "colonna">
-					<c:out value = "Quantità: ${product.availability}"/>
+					<c:out value = "Quantità: ${product.quantity}"/>
 				</td>
 				<td class = "colonna">
 				<form action = "removeproductcart" method = "POST">
 						<input type = "Submit" value = "Rimuovi prodotto"><br>
 						<input type = "hidden" name = "id_product" value='<c:out value = "${product.id_product}"/>'/>
-					</form>	
+				</form>	
 				</td>
 			</tr>
 			</c:forEach>
@@ -43,8 +43,12 @@
 						<td class = "colonna">
 					<c:out value = "Totale: ${sessionScope.total}euro"/>
 				</td>
-					</tr>
+		</tr>
+			
 		</table>
+		<form action = "emptycart" method = "POST">
+						<input type = "Submit" value = "Rimuovi tutto"><br>
+				</form>
 				</c:otherwise>
 			</c:choose>		
 

@@ -65,7 +65,7 @@ public class Product implements Serializable {
 		return availability;
 	}
 	public void setAvailability(int availability) {
-		this.availability = availability;
+		this.availability  -= availability;
 	}
 	
 	/*

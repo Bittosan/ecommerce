@@ -11,6 +11,7 @@ public class Product implements Serializable {
 	private String type;
 	private double price;
 	private int availability;
+	private int quantity;
 	
 	//private String image;
 
@@ -53,7 +54,14 @@ public class Product implements Serializable {
 		return availability;
 	}
 	public void setAvailability(int availability) {
-		this.availability = availability;
+		this.availability -= availability;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity += quantity;
 	}
 	
 	/*

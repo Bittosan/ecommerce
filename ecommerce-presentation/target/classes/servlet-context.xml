@@ -48,5 +48,8 @@
 		environment-ref="jndiProps" resource-ref="false" 
 		business-interface="application.ProductManagerRemote" 
 		lookup-home-on-startup="true"/>
-	
+	<jee:remote-slsb id="orderOP" jndi-name="ejb:ecommerce-EAR/ecommerce-application/OrderManager!application.OrderManagerRemote" 
+		environment-ref="jndiProps" resource-ref="false" 
+		business-interface="application.OrderManagerRemote" 
+		lookup-home-on-startup="true"/>
 </beans:beans>

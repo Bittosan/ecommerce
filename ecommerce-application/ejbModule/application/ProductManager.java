@@ -28,19 +28,6 @@ public class ProductManager implements ProductManagerRemote {
 			return null;
 		}
 	}
-
-	@Override
-	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public Product findProduct(int id_product) {
-		// TODO Auto-generated method stub
-		try {
-			Product p=em.createNamedQuery("Product.findProductById", Product.class)
-					.setParameter("id_product", id_product).getSingleResult();
-			return p;
-		} catch (Exception e) {
-			return null;
-		}
-	}
 	
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)

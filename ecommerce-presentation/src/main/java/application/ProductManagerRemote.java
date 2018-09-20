@@ -1,9 +1,7 @@
 package application;
 
 import java.util.List;
-
 import javax.ejb.Remote;
-
 import model.Product;
 
 @Remote
