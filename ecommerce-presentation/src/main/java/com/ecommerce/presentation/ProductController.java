@@ -49,7 +49,7 @@ public class ProductController {
 //		double total=0.0;
 //		
 //		for(Product p : cart)
-//			total+=p.getPrezzo()*p.getQuantita();
+//			total+=p.getPrice()*p.getQuantity();
 //		return total;
 //	}
 }
