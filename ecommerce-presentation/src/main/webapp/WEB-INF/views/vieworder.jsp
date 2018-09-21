@@ -4,57 +4,47 @@
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-		Riepilogo ordine
-					
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		Riepilogo ordine		
 		Dati utente
 		<c:out value="${name}"></c:out>
 		<c:out value="${surname}"></c:out>
 		<c:out value="${email}"></c:out>
-	
 		I tuoi prodotti
-		
 		<c:forEach items ="${sessionScope.cart}" var = "product">
 			<tr>				
 				<td class = "colonna">
-				Descrizione
+					Descrizione
 					<c:out value = "${product.description}"/>
 				</td>
 				<td class = "colonna">
-				Prezzo unitario
+					Prezzo unitario
 					<c:out value = "${product.price}euro"/>
 				</td>
-				
 				<td class = "colonna">
-				Quantità
+					Quantità
 					<c:out value = "Quantità: ${order.quantity}"/>
 				</td>
-				
 				<td class = "colonna">
-				Totale
+					Totale
 					<c:out value = "${product.price}*${order.quantity} euro"/>
 				</td>
-
-			</c:forEach>
-			
-	
+			</tr>
+		</c:forEach>
 		<table>
-		<tr>
+			<tr>
 				<td class = "colonna">
-				Totale ordine
+					Totale ordine
 					<c:out value = "Totale: ${sessionScope.order.total}euro"/>
 				</td>
-					</tr>
+			</tr>
 		</table>
-		
-						<form action = "vieworder" method = "GET">
-						<input type = "Submit" value = "Procedi all'acquisto">
-					</form>	
-
-</body>
+		<form action = "checkout" method = "GET">
+			<input type = "Submit" value = "Procedi all'acquisto">
+		</form>	
+	</body>
 </html>

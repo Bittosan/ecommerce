@@ -6,10 +6,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Insert title here</title>
 	</head>
-<body>
-	<div class = "accentra">
-		<h1><a style = "text-align : center">
-			<font color = red>Errore, Password o Email Errati</font></a></h1>
+	<body>
+		<div class = "accentra">
+			<h1><a style = "text-align : center">
+				<font color = red>Errore, Password o Email Errati</font></a></h1>
 		</div>
-</body>
+	</body>
 </html>

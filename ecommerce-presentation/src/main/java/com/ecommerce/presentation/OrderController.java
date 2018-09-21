@@ -120,5 +120,18 @@ public class OrderController {
 		
 		return "redirect:/viewcart";
 	}
-
+	
+	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
+	public String checkout(HttpSession session, Model model) {		
+		ArrayList<Product> cart = (ArrayList<Product>) session.getAttribute("cart");
+		Product p;
+		for (int i=0;i<cart.size();i++) {
+			p=orderOP.findProduct(cart.get(i).getId_product());
+			if (cart.get(i).getQuantity()>p.getAvailability())
+				model.addAttribute("checkout_error", true);
+		}
+		
+		// salvate l'ordine in ordersLogger
+		return "checkout";
+	}
 }
