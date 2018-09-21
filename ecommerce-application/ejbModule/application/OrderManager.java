@@ -6,6 +6,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import model.Order;
 import model.Product;
@@ -16,11 +17,28 @@ public class OrderManager implements OrderManagerRemote {
 	@PersistenceContext
 	private EntityManager em;
 
+	
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public void addOrder(int id_order, float total, String email ,int id_product, int quantity) {
-		
+	public Order addOrder(int id_product, String purchase_data, int quantity, float total, String email) {
+		try {
+			//VEDERE QUESTA QUERY PER INSERIRE IL NUOVO ORDINE
+			Order order = (Order) em.createNativeQuery("INSERT INTO Order ('id_product','purchase_data','quantity','total','email') VALUES ('a','b','c','d','e')");
+			order.setIdProduct(id_product);
+			order.setData(purchase_data);
+			order.setQuantity(quantity);
+			order.setTotal(total);
+			order.setEmail(email);
+			em.getTransaction().commit();
+			System.out.println("ordine creato con successo");
+			
+			return order;
+		} catch (Exception e) {
+			System.err.println("ordine non creato");
+			return null;
+		}
 	}
+		
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -47,3 +65,4 @@ public class OrderManager implements OrderManagerRemote {
 		}
 	}
 }
+

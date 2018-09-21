@@ -46,7 +46,7 @@
 				<form action = "emptycart" method = "POST">
 					<input type = "Submit" value = "Rimuovi tutto"><br>
 				</form>
-				<form action = "checkout" method = "GET">
+				<form action = "vieworder" method = "GET">
 					<input type = "Submit" value = "Procedi all'ordine">
 				</form>	
 			</c:otherwise>

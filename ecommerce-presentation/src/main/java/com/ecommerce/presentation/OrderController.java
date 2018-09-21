@@ -1,6 +1,8 @@
 package com.ecommerce.presentation;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import application.OrderManagerRemote;
 import application.ProductManagerRemote;
+import model.Order;
 import model.Product;
+import model.User;
 
 @Controller
 public class OrderController {
@@ -69,6 +73,7 @@ public class OrderController {
 		if(cart!=null) {
 			model.addAttribute("cart", cart);
 			session.setAttribute("cart", cart);
+			session.setAttribute("total", getTotalCart(cart));
 			logger.info("cart: "+cart.toString());
 		}
 		
@@ -91,7 +96,6 @@ public class OrderController {
 		
 		cart.remove(product);
 		session.setAttribute("cart", cart);
-	//	session.setAttribute("total", getTotalCart(cart));
 		logger.info("cart: "+cart.toString());
 		
 		if(cart.size()==0)
@@ -121,9 +125,26 @@ public class OrderController {
 		return "redirect:/viewcart";
 	}
 	
+	//INSERITO METODO PER VISUALIZZARE IL RIEPILOGO DELL'ORDINE
+	@RequestMapping(value = "/vieworder", method = RequestMethod.GET)
+	public String vieworder(HttpSession session, Model model) {		
+		ArrayList<Product> cart = (ArrayList<Product>) session.getAttribute("cart");
+		User user = (User) session.getAttribute("user");
+		if(cart!=null) {
+			
+			model.addAttribute("cart", cart);
+			session.setAttribute("cart", cart);
+			session.setAttribute("user", user);
+			session.setAttribute("total", getTotalCart(cart));
+			logger.info("cart: "+cart.toString());
+		}
+		return "vieworder";
+	}
+	
 	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
 	public String checkout(HttpSession session, Model model) {		
 		ArrayList<Product> cart = (ArrayList<Product>) session.getAttribute("cart");
+		User user = (User) session.getAttribute("user");
 		Product p;
 		for (int i=0;i<cart.size();i++) {
 			p=orderOP.findProduct(cart.get(i).getId_product());
@@ -131,7 +152,27 @@ public class OrderController {
 				model.addAttribute("checkout_error", true);
 		}
 		
+		
+		//VEDERE COME SISTEMARE IL TUTTO PER CREARE L'ORDINE
+        GregorianCalendar gc = new GregorianCalendar();
+        String purchase_data = gc.get(Calendar.DAY_OF_MONTH) + "-" + gc.get(Calendar.MONTH) + "-" + gc.get(Calendar.YEAR);
+		
+		Order o = (Order) session.getAttribute("order");
+		
+		if(o==null)
+		{//da aggiustare
+			//o= orderOP.addOrder(cart.get(0).getId_product(), purchase_data, cart.get(0).getQuantity(), getTotalCart(cart) , user.getEmail());
+		}
+		
 		// salvate l'ordine in ordersLogger
 		return "checkout";
 	}
+	
+	float getTotalCart(ArrayList<Product> cart) {
+	float total=0;
+	
+	for(Product p : cart)
+		total+=p.getPrice()*p.getQuantity();
+	return total;
+}
 }

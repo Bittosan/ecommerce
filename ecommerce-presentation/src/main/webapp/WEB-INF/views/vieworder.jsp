@@ -9,42 +9,52 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		Riepilogo ordine		
+		<div>
+		Riepilogo ordine
+		</div>		
 		Dati utente
-		<c:out value="${name}"></c:out>
-		<c:out value="${surname}"></c:out>
-		<c:out value="${email}"></c:out>
-		I tuoi prodotti
+			<div>
+		<c:out value="${user.name}"></c:out>
+		<c:out value="${user.surname}"></c:out>
+		<c:out value="${user.email}"></c:out>
+			</div>
+		<div>I tuoi prodotti 		</div>
+	<table class = "carrello">
 		<c:forEach items ="${sessionScope.cart}" var = "product">
 			<tr>				
 				<td class = "colonna">
-					Descrizione
+					
 					<c:out value = "${product.description}"/>
 				</td>
 				<td class = "colonna">
-					Prezzo unitario
+					
 					<c:out value = "${product.price}euro"/>
 				</td>
 				<td class = "colonna">
-					Quantità
-					<c:out value = "Quantità: ${order.quantity}"/>
+					
+					<c:out value = "${product.quantity}"/>
 				</td>
 				<td class = "colonna">
-					Totale
-					<c:out value = "${product.price}*${order.quantity} euro"/>
+					
+					<c:out value = "${product.price*product.quantity} euro"/>
 				</td>
 			</tr>
 		</c:forEach>
+</table>
 		<table>
 			<tr>
 				<td class = "colonna">
 					Totale ordine
-					<c:out value = "Totale: ${sessionScope.order.total}euro"/>
+					<c:out value = "${sessionScope.total}euro"/>
 				</td>
 			</tr>
 		</table>
+
+			<div>
 		<form action = "checkout" method = "GET">
 			<input type = "Submit" value = "Procedi all'acquisto">
 		</form>	
+			</table>
+			</dir>
 	</body>
 </html>
