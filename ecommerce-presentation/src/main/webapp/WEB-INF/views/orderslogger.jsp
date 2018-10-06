@@ -14,6 +14,7 @@
     <div id="menu">
       <ul>
         <li ><a href="home">Home</a></li>
+<<<<<<< HEAD
         <li class="selected"><a href="orderlogger">Log Ordini</a></li>
       </ul>
     </div>
@@ -38,6 +39,17 @@
           </tr>
 	</c:forEach>
         </table>
+=======
+        <li class="selected"><a href="orderlog">Log Ordini</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="center_content">
+    <div class="left_content">
+      <div class="title"><span class="title_icon"><img src="resources/images/bullet1.gif" alt="" /></span>Log Ordini</div>
+       <div class="feat_prod_box">  
+         
+>>>>>>> refs/remotes/ecommerce/master
   
 
       </div>

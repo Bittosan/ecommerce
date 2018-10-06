@@ -30,6 +30,10 @@
     create table User (
         email varchar(255) not null,
         name varchar(255),
+<<<<<<< HEAD
+=======
+        numberCreditCard varchar(255),
+>>>>>>> refs/remotes/ecommerce/master
         password varchar(255),
         surname varchar(255),
         username varchar(255),

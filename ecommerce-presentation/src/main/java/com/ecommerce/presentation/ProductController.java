@@ -31,6 +31,7 @@ public class ProductController {
 	private ProductManagerRemote productOP;
 	
 	@RequestMapping(value = "/viewdetails", method = RequestMethod.GET)
+<<<<<<< HEAD
 	public String category(HttpSession session, Locale locale, Model model, @RequestParam int id_product) {
 		
 		User user = (User) session.getAttribute("user");
@@ -71,6 +72,41 @@ public class ProductController {
 		   logger.info("nome prodotto: "+lp.toString());
 		   return "category";
 		  }
+=======
+	public String catalogo(HttpSession session, Locale locale, Model model, @RequestParam int id_product) {
+		
+		User user = (User) session.getAttribute("user");
+
+		Product p = productOP.findProduct(id_product);
+		model.addAttribute("product", p);
+		session.setAttribute("product", p);
+		
+		if(user!=null) 
+		{
+		session.setAttribute("user", user);
+		model.addAttribute("email", user.getEmail());
+		}
+		return "details";
+	}
+	
+	
+	@RequestMapping(value = "/productType", method = RequestMethod.GET)
+	public String productView(HttpSession session,Locale locale, Model model, @RequestParam String tipo) {
+		User user = (User) session.getAttribute("user");
+
+		
+		List<Product> lp=productOP.getProductList(tipo);
+		model.addAttribute("list", lp);
+		session.setAttribute("list", lp);
+		session.setAttribute("type", tipo);	
+		if(user!=null) 
+		{
+		session.setAttribute("user", user);
+		model.addAttribute("email", user.getEmail());
+		}
+		logger.info("nome prodotto: "+lp.toString());
+		return "category";
+>>>>>>> refs/remotes/ecommerce/master
 
 	}
 	

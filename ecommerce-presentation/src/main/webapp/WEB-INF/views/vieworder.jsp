@@ -56,6 +56,7 @@
             <td> ${sessionScope.total} &#8364;</td>
           </tr>
         </table>
+<<<<<<< HEAD
         	 <div class="form_row">
         	                     	<form action = "checkout" method = "GET">
         	 
@@ -79,6 +80,11 @@
 				<input type = "Submit" class="order" value = "Acquista">
 			</form>	
 			 </div>
+=======
+                    	<form action = "checkout" method = "GET">
+				<input type = "Submit" class="order" value = "Acquista">
+			</form>	
+>>>>>>> refs/remotes/ecommerce/master
       </div>
       <div class="clear"></div>
     </div>

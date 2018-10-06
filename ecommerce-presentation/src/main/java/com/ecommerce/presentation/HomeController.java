@@ -32,6 +32,7 @@ public class HomeController {
 	@Autowired
 	private UserManagerRemote userOP;
 	
+<<<<<<< HEAD
 	private String loginType = null;
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -105,6 +106,73 @@ public class HomeController {
 		  }
 		  
 		 }
+=======
+
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home(HttpSession session, Locale locale, Model model) {
+		
+		User user = (User) session.getAttribute("user");
+
+
+		model.addAttribute("username",null);
+		model.addAttribute("errorlogin",null);
+
+		if(user!=null)
+		{
+			session.setAttribute("user", user);
+			model.addAttribute("email",user.getEmail());
+			if(user.getUsername().equalsIgnoreCase("admin"))
+				return "administrator";
+		}
+		
+		return "home";
+		
+	}
+	
+	@RequestMapping(value = "/registrationController", method = RequestMethod.POST)
+	public String completeRegistration(Locale locale, Model model, @RequestParam String email, @RequestParam String username
+						,@RequestParam String password, @RequestParam String repeat_password ,@RequestParam String name
+						,@RequestParam String surname) {
+		
+		if (password.equals(repeat_password)) {
+			if(!userOP.checkUser(email)) 
+				userOP.saveUser(email, username, password, name, surname);
+			else
+				System.out.println("utente gia  esistente");
+		}
+		model.addAttribute("username", null);
+		return "home";
+	}
+	
+	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	public String registration(Locale locale, Model model) {
+		return "registration";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String Login(HttpSession session, Locale locale, Model model, @RequestParam String email, @RequestParam String password) {
+		
+		User user=userOP.loginControl(email, password);
+		if(user!=null){
+			session.setAttribute("user", user);
+			model.addAttribute("email",user.getEmail());
+			
+			if(email.equalsIgnoreCase("info@flowershop.it"))
+			{
+				session.setAttribute("user", user);
+				model.addAttribute("email",user.getEmail());
+				return "administrator";
+			}
+			
+			return "home";
+		} 
+			else {
+			model.addAttribute("errorlogin", "error");
+			return "errorLogin";
+		}
+		
+	}
+>>>>>>> refs/remotes/ecommerce/master
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public String Logout(HttpSession session, Locale locale, Model model) {

@@ -14,7 +14,11 @@
     <div id="menu">
       <ul>
         <li class="selected"><a href="home">Home</a></li>
+<<<<<<< HEAD
         <li><a href="orderlogger">Log Ordini</a></li>
+=======
+        <li><a href="orderlog">Log Ordini</a></li>
+>>>>>>> refs/remotes/ecommerce/master
       </ul>
     </div>
   </div>

@@ -51,7 +51,11 @@
           </tr>
 	</c:forEach>
           <tr>
+<<<<<<< HEAD
             <td colspan="4" class="cart_total"><span class="red">TOTALE:</span></td>
+=======
+            <td colspan="4" class="cart_total"><span class="red">TOTAL:</span></td>
+>>>>>>> refs/remotes/ecommerce/master
             <td> ${sessionScope.total} &#8364;</td>
           </tr>
         </table>

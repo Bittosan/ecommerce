@@ -12,7 +12,11 @@ import model.Product;
 @Stateless
 public class ProductManager implements ProductManagerRemote {
 	
+<<<<<<< HEAD
 	@PersistenceContext(unitName="ecommerce-model")
+=======
+	@PersistenceContext
+>>>>>>> refs/remotes/ecommerce/master
 	private EntityManager em;
  
 	@Override

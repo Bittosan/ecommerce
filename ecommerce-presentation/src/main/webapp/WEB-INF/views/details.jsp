@@ -13,7 +13,11 @@
     <div class="logo"><a href="#"><img src="resources/images/logo.gif" alt="" border="0" /></a></div>
     <div id="menu">
       <ul>
+<<<<<<< HEAD
         <li><a href="home">Home</a></li>
+=======
+        <li class="selected"><a href="home">Home</a></li>
+>>>>>>> refs/remotes/ecommerce/master
         <li><a href="productType?tipo=Fiori">Fiori</a></li>
         <li><a href="productType?tipo=Vasi">Vasi</a></li>
         <li><a href="productType?tipo=Attrezzature">Attrezzature</a></li>

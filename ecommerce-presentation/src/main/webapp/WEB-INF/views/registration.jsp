@@ -59,6 +59,12 @@
               <input type="text" class="contact_input"  name = "surname" value = "" required/>
               <c:if test = "${surname == null }"></c:if>
             </div>
+<<<<<<< HEAD
+=======
+           <div class="form_row">
+              <label class="contact"><strong>Numero Carta Credito:</strong></label>
+            </div>
+>>>>>>> refs/remotes/ecommerce/master
             <div class="form_row">
               <input type="submit" class="register" value="Registrati" />
             </div>

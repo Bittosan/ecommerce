@@ -9,9 +9,12 @@ import javax.persistence.*;
  *
  */
 @Entity
+<<<<<<< HEAD
 @NamedQueries({
     @NamedQuery(name = "OrdersLogger.findAllOrder", query = "SELECT ol FROM OrdersLogger ol")})
 
+=======
+>>>>>>> refs/remotes/ecommerce/master
 
 @IdClass(OrdersLoggerPK.class)
 public class OrdersLogger implements Serializable {

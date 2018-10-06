@@ -1,15 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: ecommerce-presentation
 Implementation-Version: 1.0.0-BUILD-SNAPSHOT
-<<<<<<< HEAD
-Built-By: Alfredo
-Implementation-Vendor-Id: com.ecommerce
-Build-Jdk: 1.8.0_181
-=======
 Built-By: Roberto
 Implementation-Vendor-Id: com.ecommerce
 Build-Jdk: 1.8.0_172
->>>>>>> refs/remotes/ecommerce/master
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/presentation
 Created-By: Maven Integration for Eclipse

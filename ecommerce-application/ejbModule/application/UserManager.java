@@ -12,8 +12,13 @@ import model.User;
 @Stateless
 public class UserManager implements UserManagerRemote {
 
+<<<<<<< HEAD
 	@PersistenceContext(unitName="ecommerce-model")
 	private EntityManager em;
+=======
+	@PersistenceContext
+	EntityManager em;
+>>>>>>> refs/remotes/ecommerce/master
 	
 	public UserManager(){}
  

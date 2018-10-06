@@ -5,6 +5,7 @@
 		<class>model.Product</class>
 		<class>model.User</class>
 		<class>model.Orders</class>
+<<<<<<< HEAD
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
@@ -29,3 +30,16 @@
 		</properties>
 	</persistence-unit>
 </persistence>
+=======
+		<class>model.OrdersLogger</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.cache.use_second_level_cache" value="true"/>
+			<property name="hibernate.generate_statistics" value="true"/>
+			<property name="hibernate.cache.use_query_cache" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>
+>>>>>>> refs/remotes/ecommerce/master
